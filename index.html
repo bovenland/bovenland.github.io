@@ -7,15 +7,19 @@
   <meta property="og:site_name" content="boven.land">
   <meta property="og:description" content="Nederland in kaart">
   <meta name="description" content="Nederland in kaart"/>
-  <meta property="og:image" content="https://boven.land/images/open-graph.jpg"/>
-  <meta property="og:image:secure_url" content="https://boven.land/images/open-graph.jpg"/>
+  <meta property="og:image" content="https://boven.land/assets/images/open-graph.jpg"/>
+  <meta property="og:image:secure_url" content="https://boven.land/assets/images/open-graph.jpg"/>
   <meta property="og:url" content="https://boven.land/"/>
   <meta property="og:type" content="website" />
   <meta property="og:updated_time" content="1552468188" />
 
   <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+  <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v1.0.0/mapbox-gl.js'></script>
+  <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v1.0.0/mapbox-gl.css' rel='stylesheet' >
   <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Open+Sans" />
   <link rel="stylesheet" href="https://unpkg.com/tachyons@4.10.0/css/tachyons.min.css"/>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js"></script>
+  <script src="https://d3js.org/d3.v5.min.js"></script>
   <style>
 
     body, html {
@@ -32,41 +36,282 @@
       right: 0;
       height: 100%;
       width: 100%;
+      font-family: "Open Sans";
+      font-size: 17px;
+      line-height: 1.5;
     }
 
-    main {
-      height: 100%;
-      width: 100%;
-
+    .background-video {
       position: absolute;
-      display: flex;
+      overflow: hidden;
+      z-index: -1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+    }
 
-      background: url(images/background.jpg) no-repeat center center fixed;
-      background-size: cover;
-
-      align-items: center;
-      justify-content: center;
+    video {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      -webkit-transform: translateX(-50%) translateY(-50%);
+      transform: translateX(-50%) translateY(-50%);
+      min-width: 100%;
+      min-height: 100%;
+      width: auto;
+      height: auto;
     }
 
     h1 {
       margin: 0;
       padding: 0;
 
-      font-family: "Open Sans";
       font-weight: bold;
-      color: white;
+      color: black;
+    }
 
-      text-shadow: 8px 8px rgba(0, 0, 0, 0.5);
+    p, img {
+      max-width: 100%;
+      width: 700px;
+      margin: 1em auto;
+    }
+
+    img {
+      display: block;
+    }
+
+    .title {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .title .text {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+    }
+
+    .title ul {
+      list-style-type: none;
+      display: flex;
+    }
+
+    .title ul li {
+      margin: 0 .5em;
+    }
+
+    .map {
+      width: 100%;
+      height: 100%;
+    }
+
+    .sticky {
+      position: sticky;
+      height: 100vh;
+      top: 0;
+    }
+
+    .columns {
+      display: flex;
+      flex-direction: row;
+    }
+
+    .columns > * {
+      width: 100%;
+    }
+
+    .aside {
+      width: 400px;
+      flex-shrink: 0;
+      position: sticky;
+      height: 100vh;
+      top: 0;
+      padding: 2em;
+    }
+
+    iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
     }
   </style>
 </head>
 
 <body>
   <main>
-    <h1 class="f-headline-l f1 lh-solid">
-      boven.land
-    </h1>
-  </main>
-</body>
+    <section class="relative vh-100 title">
+      <div class="background-video">
+        <video loop muted autoplay poster="assets/video/schiermonnikoog-frame.jpg">
+          <source src="assets/video/schiermonnikoog.mp4" type="video/mp4">
+          <!-- <source src="assets/video/schiermonnikoog.webm" type="video/webm"> -->
+        </video>
+      </div>
+      <div class="text">
+        <h1 class="f-headline-l f1 lh-solid">
+          Boven.land
+        </h1>
+        <h2>Op zoek naar het meest afgelegen punt van Nederland</h2>
+        <ul>
+          <li><a href="#reisverslag">Reisverslag</a></li>
+          <li><a href="#foto-video">Foto & Video</a></li>
+          <li><a href="#kaart">Kaart</a></li>
+          <li><a href="#data">Data</a></li>
+        </ul>
+      </div>
 
+    </section>
+    <div class="vh-50"></div>
+    <section>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis unde ex magnam officiis ea totam, et quisquam, nisi exercitationem laborum laboriosam cumque animi consequatur dolorum. Totam numquam facere obcaecati dolorum.</p>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis unde ex magnam officiis ea totam, et quisquam, nisi exercitationem laborum laboriosam cumque animi consequatur dolorum. Totam numquam facere obcaecati dolorum.</p>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis unde ex magnam officiis ea totam, et quisquam, nisi exercitationem laborum laboriosam cumque animi consequatur dolorum. Totam numquam facere obcaecati dolorum.</p>
+      <img src="https://lh3.googleusercontent.com/R230e1LOieX1pgeBM2MVbkZjZ5nJ3h-MKqIiSh_441okSmZW_NHXOJMqGfqWgu_Hrh5Sm-fcsoxuDVy4vzrzunQ0eiSDuufUm3fJnvJHDOR35CgDSZOMUGcC1j4izW63BFRGbJY7efHu8D-RSmgivSZ0S0bZbKYsbD4mDNBW2A4zqYslUax2Vg7ogMMoDAXcLbi50WIX6kjqalRHPpTllSI66ru8Nq4mqkkMC7y6IeuB-euZ6Gs55LraYr9scESQNbbmp4LQtjZUjzy6EAf8gkvWiETSd7-xrhULTeC0PPu1WLAAZ7J4s_-LZkt3leOVc0F3bZdvHVR6ErVjwhwaZIvPizUszh0HRHiajGIggWtRJInO2etkKDGGMoAPZ5Wd8rY_tO88_Hu6iT7XTvpmJmjVnt52NxwB328xqW0vz1hoV80uuuEngAHS6AiHeZfppsFdYqiyQ339z8VHYXlwNIg-HLhljm61Sk2QPfEwQEAvi697si_xu3LYrRhRWgd9bK8eEa4DqO81kFfTdBU_EdXblu_Ww4W4j7qNnjkfIwMEPZsl798CUdWgTN-jfbTV6m6FoxvDMFN6kPcLbb8pfbZiShS8vxYvqg4SB0KGJxL5hxSMOb_v4gSCkIF5xeSG_Pmx8zNXsbKe6mf_GxUkVQtpbTnTUnIFK26V63h5BIQnH6zaP4Bi7hpztDlYZg5hO2yJdo15xX0NynGsbQQOb4U20g=w461-h308-no" />
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis unde ex magnam officiis ea totam, et quisquam, nisi exercitationem laborum laboriosam cumque animi consequatur dolorum. Totam numquam facere obcaecati dolorum.</p>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis unde ex magnam officiis ea totam, et quisquam, nisi exercitationem laborum laboriosam cumque animi consequatur dolorum. Totam numquam facere obcaecati dolorum.</p>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis unde ex magnam officiis ea totam, et quisquam, nisi exercitationem laborum laboriosam cumque animi consequatur dolorum. Totam numquam facere obcaecati dolorum.</p>
+    </section>
+    <div class="vh-50"></div>
+    <section class="vh-100">
+      <iframe src="https://boven.land/distance-to-buildings/#10.37/53.4503/6.2422"></iframe>
+    </section>
+    <div class="vh-50"></div>
+    <section class="relative columns">
+      <aside class="aside">
+        <div class="map" id="map-topographic"></div>
+      </aside>
+      <div>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis unde ex magnam officiis ea totam, et quisquam, nisi exercitationem laborum laboriosam cumque animi consequatur dolorum. Totam numquam facere obcaecati dolorum.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias reiciendis vitae libero maxime maiores ex ducimus at aspernatur obcaecati, pariatur voluptate temporibus iusto blanditiis architecto impedit voluptatibus expedita repudiandae numquam.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias reiciendis vitae libero maxime maiores ex ducimus at aspernatur obcaecati, pariatur voluptate temporibus iusto blanditiis architecto impedit voluptatibus expedita repudiandae numquam.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias reiciendis vitae libero maxime maiores ex ducimus at aspernatur obcaecati, pariatur voluptate temporibus iusto blanditiis architecto impedit voluptatibus expedita repudiandae numquam.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias reiciendis vitae libero maxime maiores ex ducimus at aspernatur obcaecati, pariatur voluptate temporibus iusto blanditiis architecto impedit voluptatibus expedita repudiandae numquam.</p>
+        <img src="https://lh3.googleusercontent.com/9mCuNOCPEbSufVAyTSUPXq74yKiM_4A2V3QnseZQRyE3eDlF3afO5KVrZLvpvV9bWgeWWMJQXSI8O5zc30p77XytUY9fczWBpaWMZtQ7SsR_yaxDiJlzY7MhqLRf0APEGawDAV8fFz_uQk0QX5-aX6unEgVmUynFyFO0S8PXCXLLNgxBf_okExornusrC5BD24DWoJZaGdFtMp3fYtcbkyqaJS3imq00ERiTBHRY-f4zB9D2Pe5LoUfN65bAPxaydXV_ERFh3oR4Tb2Y__P9K0z3hKvDzuwcG3AdDXA-UgS03GckzMnqaWnHUwufbBeWJ2g_27rMBRsID4aZ7NEFVX68HBgfCFYtEhlFRW83yniCr6CeuGcsCBhVgHJmQsjtpRUdavSC3oMXvpyGQg9FwUGbuQewYi3g51YznA0MgtjcuxjgYVFOPfpIpQSfL-QQ7cUPF17ZgcezpKca_QElxdT0xSHyiG2egww9a1FKqEYrWPsMsVOTZNrlxgkXMGbQtEHvMuKqsoslkkbitkycgxDMbVnsSPDDmQqETpXyOSpFDT-BeEHQ5tlBsLs3J90Jf0yHeSRmTUv-0HzieqKAnov2HAL1dU79WztGC-P97EpSClKZP6c6n2g3Lc7ksXUx4vGmfwrQkIRNwyLfKWY07wiSf0J1tOTmbTyE6VP6Lz0vFwVn-hu6uAWc9WH9LHU4cgeVyCJDKyu5OqUKPYQs9xvtIQ=w693-h462-no" />
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias reiciendis vitae libero maxime maiores ex ducimus at aspernatur obcaecati, pariatur voluptate temporibus iusto blanditiis architecto impedit voluptatibus expedita repudiandae numquam.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias reiciendis vitae libero maxime maiores ex ducimus at aspernatur obcaecati, pariatur voluptate temporibus iusto blanditiis architecto impedit voluptatibus expedita repudiandae numquam.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias reiciendis vitae libero maxime maiores ex ducimus at aspernatur obcaecati, pariatur voluptate temporibus iusto blanditiis architecto impedit voluptatibus expedita repudiandae numquam.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias reiciendis vitae libero maxime maiores ex ducimus at aspernatur obcaecati, pariatur voluptate temporibus iusto blanditiis architecto impedit voluptatibus expedita repudiandae numquam.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias reiciendis vitae libero maxime maiores ex ducimus at aspernatur obcaecati, pariatur voluptate temporibus iusto blanditiis architecto impedit voluptatibus expedita repudiandae numquam.</p>
+      </div>
+    </section>
+    <div class="vh-50"></div>
+    <section class="relative satellite">
+      <div class="map sticky vh-100" id="map-satellite"></div>
+      <div class="vh-100"></div>
+      <div class="vh-100"></div>
+      <div class="vh-100"></div>
+    </section>
+    <div class="vh-50"></div>
+    <footer>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis unde ex magnam officiis ea totam, et quisquam, nisi exercitationem laborum laboriosam cumque animi consequatur dolorum. Totam numquam facere obcaecati dolorum.</p>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis unde ex magnam officiis ea totam, et quisquam, nisi exercitationem laborum laboriosam cumque animi consequatur dolorum. Totam numquam facere obcaecati dolorum.</p>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis unde ex magnam officiis ea totam, et quisquam, nisi exercitationem laborum laboriosam cumque animi consequatur dolorum. Totam numquam facere obcaecati dolorum.</p>
+      <p>boven.land</p>
+    </footer>
+  </main>
+  <script>
+    mapboxgl.accessToken = 'pk.eyJ1IjoiYmVydHNwYWFuIiwiYSI6ImR3dERiQk0ifQ.DLbScmbRohc3Sqv7prfhqw';
+
+    var mapTopographic = new mapboxgl.Map({
+      container: 'map-topographic',
+      style: 'mapbox://styles/bertspaan/cjxdmn9tr08xh1cl7ttmaeaqn',
+      scrollZoom: false,
+      zoom: 10.8,
+      center: [6.2595, 53.4827],
+      bearing: 85.4
+    })
+
+    var mapSatellite = new mapboxgl.Map({
+      container: 'map-satellite',
+      style: 'mapbox://styles/mapbox/satellite-v9',
+      scrollZoom: false,
+      zoom: 12.47,
+      center: [6.2752, 53.49368],
+      bearing: 87,
+      pitch: 60
+    })
+
+    mapTopographic.on('load', function () {
+      d3.json('assets/geojson/schiermonnikoog.geojson')
+        .then((data) => {
+          mapTopographic.addLayer({
+            id: 'route',
+            type: 'line',
+            source: {
+              type: 'geojson',
+              data: data
+            },
+            layout: {
+              'line-join': 'round',
+              'line-cap': 'round'
+            },
+            paint: {
+              'line-color': '#fc4102',
+              'line-opacity': 0.8,
+              'line-width': 2
+            }
+          })
+        })
+    })
+
+    mapSatellite.on('load', function () {
+      d3.json('assets/geojson/schiermonnikoog.geojson')
+        .then((data) => {
+          mapSatellite.addLayer({
+            id: 'route',
+            type: 'line',
+            source: {
+              type: 'geojson',
+              data: data
+            },
+            layout: {
+              'line-join': 'round',
+              'line-cap': 'round'
+            },
+            paint: {
+              'line-color': '#fc4102',
+              'line-opacity': 0.8,
+              'line-width': 4
+            }
+          })
+        })
+    })
+
+    function zoomOut() {
+      console.log('nihier')
+      mapSatellite.flyTo({
+        zoom: 12,
+        speed: 0.2,
+        curve: 1,
+        easing: function (t) { return t; }
+      })
+    }
+
+    var controller = new ScrollMagic.Controller()
+
+    var scene = new ScrollMagic.Scene({
+      triggerElement: '.satellite',
+      // duration: window.innerHeight * 3
+    }).addTo(controller)
+
+
+    var zoomedIn = false
+
+    scene.on('progress', function (event) {
+      if (event.progress < .8 && zoomedIn) {
+        console.log('zoom out ')
+        zoomedIn = false
+        zoomOut()
+      } else if (event.progress > .8 && !zoomedIn) {
+        console.log('zoom in')
+        zoomedIn = true
+        mapSatellite.flyTo({
+          zoom: 12.47 + 1
+        })
+      }
+    })
+
+  </script>
+</body>
 </html>
