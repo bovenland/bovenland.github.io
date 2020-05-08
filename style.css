@@ -1,0 +1,183 @@
+---
+---
+* {
+  box-sizing: border-box;
+}
+
+body, html {
+  height: 100%;
+  font-kerning: none;
+}
+
+body {
+  position: absolute;
+  margin: 0;
+  padding: 0;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  font-size: 17px;
+  line-height: 1.5;
+  font-family: 'Space Mono', monospace;
+}
+
+.background {
+  position: static;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.background-image {
+  display: none;
+  z-index: -1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.background video {
+  /* Resulution = 1280 : 720 = 16 / 9 */
+  height: 100%;
+  width: 177.77777778vh; /* 100 * 16 / 9 */
+  min-width: 100%;
+  min-height: 56.25vw; /* 100 * 9 / 16 */
+}
+
+.container {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  width: 350px;
+}
+
+.logo {
+  margin: 1em 0;
+}
+
+.announce, h3, .text {
+  color: #ff179c;
+}
+
+.introduction {
+  margin-left: -75px;
+  width: 650px;
+  height: 650px;
+  max-width: calc(100% + 75px);
+  max-height: 100%;
+  background-repeat: no-repeat;
+  background-size: 650px;
+  background-position: center;
+  padding: 0 150px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.small {
+  font-size: 75%;
+  line-height: 1.5em;
+}
+
+.bert-en-jenny {
+  list-style-type: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.bert-en-jenny h3, .bert-en-jenny p {
+  margin: 0;
+}
+
+.bert-en-jenny, .bert-en-jenny li {
+  padding: 0;
+  margin: 0;
+}
+
+.bert-en-jenny > li {
+  padding: 1em;
+}
+
+a, a:visited {
+  color: #111;
+}
+
+.bert-en-jenny a, .bert-en-jenny a:visited {
+  text-decoration: none;
+}
+
+.bert-en-jenny img {
+  width: 125px;
+}
+
+.stimuleringsfonds-inline {
+  display: none;
+  padding: 1em;
+}
+
+.stimuleringsfonds-inline img {
+  width: 100px;
+}
+
+.stimuleringsfonds-corner {
+  position: absolute;
+  right: 1em;
+  bottom: 1em;
+}
+
+.stimuleringsfonds-corner img {
+  width: 100px;
+}
+
+@media only screen and (max-width : 500px),
+  screen and (max-height : 500px) {
+  .introduction {
+    margin-left: unset;
+    padding: 0 1em;
+    overflow: unset;
+  }
+
+  .background {
+    display: none;
+  }
+
+  .background-image {
+    display: block;
+  }
+
+  .logo {
+    width: 250px;
+    margin: 0;
+  }
+
+  .bert-en-jenny img {
+    width: 75px;
+  }
+
+  .stimuleringsfonds-inline {
+    display: block;
+  }
+
+  .stimuleringsfonds-corner {
+    display: none;
+  }
+}

@@ -1,0 +1,19 @@
+baseurl: ''
+exclude:
+  - CNAME
+  - README.md
+
+url: https://boven.land
+title: Boven.land
+description: Boven.land is een visuele en cartografische ontdekkingsreis waarin we onderzoeken wat Nederland tot Nederland maakt.
+
+collections:
+  stories:
+    output: true
+    permalink: /:name/
+
+defaults:
+  - scope:
+      path: _stories
+    values:
+      layout: story
